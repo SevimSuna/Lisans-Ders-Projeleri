@@ -1,0 +1,3 @@
+".\Objects\Odev2.obj" 
+TO ".\Objects\Odev2" 
+PRINT(".\Listings\Odev2.m51") RAMSIZE(256) 

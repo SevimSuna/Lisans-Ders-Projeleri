@@ -1,0 +1,64 @@
+A51 MACRO ASSEMBLER  ODEV2                                                                05/03/2020 19:11:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Odev2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Odev2.asm SET(SMALL) DEBUG PRINT(.\Listings\Odev2.lst) OBJECT(.\Objects
+                      \Odev2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H
+0000 802E              2     SJMP BASLA
+0030                   3     ORG 30H
+                       4             
+0030 7590FF            5     BASLA:  MOV P1, #0FFH
+0033 75A000            6                     MOV P2, #0
+0036 E4                7                     CLR A
+0037 90005F            8                     MOV     DPTR, #005FH
+003A 2090FD            9     BAS:    JB P1.0, BAS
+003D 1154             10     CALIS:  CALL SAY
+003F F5A0             11                     MOV P2,A
+0041 EA               12                     MOV A, R2
+0042 1149             13                     CALL GECIKME
+0044 B410F6           14                     CJNE A, #16, CALIS
+0047 80E7             15                     SJMP BASLA
+0049 78FF             16     GECIKME:        MOV R0, #255
+004B 79FF             17                     MOV R1, #255
+004D D8FE             18     BEKLE:  DJNZ R0, BEKLE
+004F 78FF             19                     MOV R0, #255
+0051 D9FA             20                     DJNZ R1, BEKLE
+0053 22               21                     RET
+0054 04               22     SAY:    INC A
+0055 FA               23                     MOV R2,A
+0056 93               24                     MOVC A, @A+DPTR
+0057 22               25                     RET
+0060                  26                     ORG 60H
+0060 2D2D2D2D         27     TABLO:  DB      2DH, 2DH, 2DH, 2DH
+0064 2D2D2D2D         28                     DB      2DH, 2DH, 2DH, 2DH
+                      29                     
+                      30                     
+                      31                     END
+A51 MACRO ASSEMBLER  ODEV2                                                                05/03/2020 19:11:40 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BAS. . . . . . . .  C ADDR   003AH   A   
+BASLA. . . . . . .  C ADDR   0030H   A   
+BEKLE. . . . . . .  C ADDR   004DH   A   
+CALIS. . . . . . .  C ADDR   003DH   A   
+GECIKME. . . . . .  C ADDR   0049H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SAY. . . . . . . .  C ADDR   0054H   A   
+TABLO. . . . . . .  C ADDR   0060H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
